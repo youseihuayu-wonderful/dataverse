@@ -262,3 +262,5 @@ jobs:
           name: docker-logs
           path: docker-logs/
           retention-days: 14
+
+# Registered in fork for workflow_dispatch verification.
