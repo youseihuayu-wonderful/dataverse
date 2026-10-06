@@ -1,0 +1,670 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "overall_result": "MIXED: functional checks pass; default-resource full API regression fails; resource-adjusted full API and JSF pass; upstream CI is not fully green",
+  "scope": {
+    "upstream_pr": "https://github.com/IQSS/dataverse/pull/12746",
+    "backend_sha": "57efd74d2713fb6fbebab723fdf77c79fe348862",
+    "backend_version": "6.12",
+    "frontend_sha": "1e586a09691f880376939ddf924bf1bdba94c307",
+    "jsf_runner_sha": "ba5d8847779a4fce791a23d971fd54cae7a82b28",
+    "backend_source_modified": false,
+    "frontend_source_modified": false,
+    "tests_modified": false
+  },
+  "environments": {
+    "spa": "macOS arm64, Java21.0.12.1, Maven3.9.11, Node22.23.2",
+    "startup_and_regression": "isolated Ubuntu24.04 arm64, OpenJDK21.0.12.1, Maven3.8.7, independent Docker daemon vfs",
+    "jsf_node": "24.21.0",
+    "no_global_docker_context_changes": true
+  },
+  "multipart": {
+    "status": "PASS",
+    "store": "s3",
+    "fixture_bytes": 20971520,
+    "part_size": 8388608,
+    "parts": 3,
+    "uses_supported_configuration_override": true,
+    "default_1GiB_threshold_not_exercised": true,
+    "source_sha256": "3568217a72eed5450d704907de96e14c75cc1b18661f38e0c9f458e462b38def",
+    "download_sha256": "3568217a72eed5450d704907de96e14c75cc1b18661f38e0c9f458e462b38def",
+    "download_bytes": 20971520,
+    "upload_network": [
+      {
+        "method": "GET",
+        "host": "localhost:8000",
+        "path": "/api/v1/datasets/:persistentId/uploadurls",
+        "status": 200,
+        "part_number": null,
+        "multipart_upload_id_present": false,
+        "etag": null,
+        "expose": "content-encoding, content-range, accept-ranges"
+      },
+      {
+        "method": "OPTIONS",
+        "host": "s3.localhost:4566",
+        "path": "/mybucket/10.5072/FK2/162XLH/1a111607a66-f8151211ef65",
+        "status": 200,
+        "part_number": "1",
+        "multipart_upload_id_present": true,
+        "etag": null,
+        "expose": "ETag"
+      },
+      {
+        "method": "PUT",
+        "host": "s3.localhost:4566",
+        "path": "/mybucket/10.5072/FK2/162XLH/1a111607a66-f8151211ef65",
+        "status": 200,
+        "part_number": "1",
+        "multipart_upload_id_present": true,
+        "etag": "\"57b019a28c426df5727b3992701bd2be\"",
+        "expose": "ETag"
+      },
+      {
+        "method": "PUT",
+        "host": "s3.localhost:4566",
+        "path": "/mybucket/10.5072/FK2/162XLH/1a111607a66-f8151211ef65",
+        "status": 200,
+        "part_number": "2",
+        "multipart_upload_id_present": true,
+        "etag": "\"57b019a28c426df5727b3992701bd2be\"",
+        "expose": "ETag"
+      },
+      {
+        "method": "OPTIONS",
+        "host": "s3.localhost:4566",
+        "path": "/mybucket/10.5072/FK2/162XLH/1a111607a66-f8151211ef65",
+        "status": 200,
+        "part_number": "2",
+        "multipart_upload_id_present": true,
+        "etag": null,
+        "expose": "ETag"
+      },
+      {
+        "method": "OPTIONS",
+        "host": "s3.localhost:4566",
+        "path": "/mybucket/10.5072/FK2/162XLH/1a111607a66-f8151211ef65",
+        "status": 200,
+        "part_number": "3",
+        "multipart_upload_id_present": true,
+        "etag": null,
+        "expose": "ETag"
+      },
+      {
+        "method": "PUT",
+        "host": "s3.localhost:4566",
+        "path": "/mybucket/10.5072/FK2/162XLH/1a111607a66-f8151211ef65",
+        "status": 200,
+        "part_number": "3",
+        "multipart_upload_id_present": true,
+        "etag": "\"631b2c76267e568ccb221193ab23e134\"",
+        "expose": "ETag"
+      },
+      {
+        "method": "PUT",
+        "host": "localhost:8000",
+        "path": "/api/v1/datasets/mpupload",
+        "status": 200,
+        "part_number": null,
+        "multipart_upload_id_present": false,
+        "etag": null,
+        "expose": "content-encoding, content-range, accept-ranges"
+      }
+    ],
+    "download_network": [
+      {
+        "method": "POST",
+        "host": "localhost:8000",
+        "path": "/api/v1/access/datafile/13",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "host": "localhost:8000",
+        "path": "/api/v1/access/datafile/13",
+        "status": 303
+      },
+      {
+        "method": "GET",
+        "host": "s3.localhost:4566",
+        "path": "/mybucket/10.5072/FK2/162XLH/1a111607a66-f8151211ef65",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "host": "localhost:8000",
+        "path": "/api/v1/notifications/unreadCount",
+        "status": 200
+      }
+    ]
+  },
+  "persistent_s3": {
+    "status": "PASS",
+    "provider": "MinIO RELEASE.2025-09-07T16-13-09Z",
+    "provider_binary_sha256": "5c83cd2cf151717ba0243f73e1c7802ff36e272b67144bdd7f1f7d684fd6f03d",
+    "storage": "disk-backed bind mount; no tmpfs",
+    "bytes": 2097125,
+    "before_sha256": "dcc248d1da720cd3558a50409b12f6a8d11b34e8258e31e6d5dcc43e78066dde",
+    "after_sha256": "dcc248d1da720cd3558a50409b12f6a8d11b34e8258e31e6d5dcc43e78066dde",
+    "path": "Dataverse API, actual browser S3 PUT/download, registration and authenticated Dataverse redirect",
+    "full_qa_stop_and_minio_stop_start": true,
+    "some_qa_containers_recreated": true,
+    "original_localstack_persistence_proven": false,
+    "custom_driver_spa_download_menu_verified": false
+  },
+  "unmodified_startup": {
+    "command": "mvn -Pct clean package docker:run",
+    "result": "READY_AFTER_ENVIRONMENT_REPAIR",
+    "first_failure": "isolated Docker containerd-overlayfs whiteout operation not permitted",
+    "environment_repair": "independent daemon vfs; containerd-snapshotter false",
+    "source_and_maven_flags_changed": false,
+    "original_default_ports_used_in_isolated_machine": true,
+    "api_http": 200,
+    "version": "6.12",
+    "jsf_login_page_http": 200,
+    "builtin_auth_http": 200,
+    "spi_count": 1,
+    "foreground_final_exit": 130,
+    "exit_reason": "explicit controlled Ctrl-C teardown after verification"
+  },
+  "api_attempts": [
+    {
+      "attempt": 1,
+      "selected_classes": 53,
+      "tests": 408,
+      "passed": 393,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 14,
+      "result": "FAIL",
+      "cause": "QA fixture injection discrepancy: docker cp to container tmpfs did not make SUSHI file visible"
+    },
+    {
+      "attempt": 2,
+      "selected_classes": 53,
+      "tests": 270,
+      "passed": 146,
+      "failures": 1,
+      "errors": 116,
+      "skipped": 7,
+      "result": "FAIL",
+      "memory_limit_bytes": 2684354560,
+      "fixture_injection": "exact workflow docker exec stdin",
+      "cause": "observed container OOM, die exit137 and auto restart; connection errors curtailed method execution",
+      "all_408_methods_completed": false
+    },
+    {
+      "attempt": 3,
+      "selected_classes": 53,
+      "tests": 408,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 14,
+      "passed": 394,
+      "result": "PASS_IN_RESOURCE_ADJUSTED_ENVIRONMENT",
+      "memory_limit_bytes": 8589934592,
+      "memory_reservation_bytes": 4294967296,
+      "max_app_peak_bytes": 3103875072,
+      "machine_local_oom_delta": 0,
+      "same_source_tests_and_full_suite": true,
+      "replaces_default_resource_failure": false
+    }
+  ],
+  "api_final_suites": [
+    {
+      "class": "edu.harvard.iq.dataverse.api.DataversesIT",
+      "tests": 37,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DatasetsIT",
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 4
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.SwordIT",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.AdminIT",
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.BuiltinUsersIT",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.UsersIT",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.UtilIT",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.ConfirmEmailIT",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.FileMetadataIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.FilesIT",
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.SearchIT",
+      "tests": 22,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.InReviewWorkflowIT",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.HarvestingServerIT",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.HarvestingClientsIT",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.MoveIT",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.MakeDataCountApiIT",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.FileTypeDetectionIT",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.EditDDIIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.ExternalToolsIT",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 4
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.AccessIT",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DuplicateFilesIT",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DownloadFilesIT",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.LinkIT",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DeleteUsersIT",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DeactivateUsersIT",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.AuxiliaryFilesIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.InvalidCharactersIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.LicensesIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.NotificationsIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.BagIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.MetadataBlocksIT",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.NetcdfIT",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.SignpostingIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.FitsIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.LogoutIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DataRetrieverApiIT",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.ProvIT",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.S3AccessIT",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.OpenApiIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.InfoIT",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DatasetFieldsIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.SavedSearchIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DatasetTypesIT",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.DataverseFeaturedItemsIT",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.SendFeedbackApiIT",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.CustomizationIT",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.JsonLDExportIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.WorkflowsIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.LDNInboxIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.LocalContextsIT",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.CorsIT",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.GuestbooksIT",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.LocallyFairIT",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.FilesIT$IngestSizeLimits",
+      "tests": 56,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.AdminIT$SettingsAPI",
+      "tests": 24,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 3
+    }
+  ],
+  "api_final_critical_cases": [
+    {
+      "class": "edu.harvard.iq.dataverse.api.UsersIT",
+      "name": "testRegisterOIDCUser",
+      "status": "PASS",
+      "seconds": 0.709
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.MakeDataCountApiIT",
+      "name": "testMakeDataCountGetMetric",
+      "status": "PASS",
+      "seconds": 0.518
+    },
+    {
+      "class": "edu.harvard.iq.dataverse.api.FilesIT",
+      "name": "testDownloadFileWithGuestbookResponseUsingBearerToken",
+      "status": "PASS",
+      "seconds": 3.075
+    }
+  ],
+  "jsf": {
+    "result": "PASS",
+    "default_projects": 13,
+    "browsers": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "reported": 79,
+    "passed": 71,
+    "failed": 0,
+    "skipped": 8,
+    "flaky": 0,
+    "preflight_assertions_skipped_by_workflow": true,
+    "skip_boundaries": "six optional regression scenarios under default feature env; two pre-existing WebKit download skips"
+  },
+  "ci_snapshot": {
+    "query_time_utc": "2026-10-06T13:16:18.593043+00:00",
+    "head_unchanged": true,
+    "checked_head_sha": "57efd74d2713fb6fbebab723fdf77c79fe348862",
+    "tested_merge_sha": "ba3712971cb3e2e11328d3c0c7ab9f082deb9ecd",
+    "check_counts": {
+      "SUCCESS": 15,
+      "FAILURE": 1,
+      "CANCELLED": 1,
+      "SKIPPED": 9
+    },
+    "raw_head_unit_failure": "Surefire3.2.5 plugin dependency plexus-sec-dispatcher1.3 artifact descriptor resolution before test execution; exact historical transport cause unknown",
+    "cancelled_integration": "hosted runner not acquired even after multiple attempts",
+    "remote_reruns_performed": false,
+    "upstream_writes_performed": false
+  },
+  "known_frontend_limit": {
+    "source": "src/sections/file/file-action-buttons/access-file-menu/AccessFileMenu.tsx:56-60",
+    "condition": "storageIdentifier must start with s3 for SPA access menu",
+    "observed": "custom multipartqa driver had real multipart upload/save/API download success, but SPA menu was hidden",
+    "pr_causality_established": false
+  },
+  "cleanup": {
+    "qa_upload_stack_and_minio_stopped": true,
+    "isolated_regression_stack_removed": true,
+    "isolated_machine_stopped": true,
+    "qa_vite_stopped": true,
+    "qa_browsers_released": true,
+    "temporary_auth_files_removed": true,
+    "original_user_containers_not_directly_stopped_deleted_restarted": true,
+    "source_and_tests_unchanged": true,
+    "raw_private_logs_not_uploaded": true,
+    "cache_images_credentials_downloads_not_uploaded": true
+  }
+}
